@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -186, "left": 186.2, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led2", "top": -186, "left": 243.8, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led3", "top": -186, "left": 291.8, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led4", "top": -186, "left": 339.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -91.2,
+      "left": 181.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -91.2,
+      "left": 287.45,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -91.2,
+      "left": 239.45,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": -91.2,
+      "left": 335.45,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "led3:A", "r2:1", "green", [ "v0" ] ],
+    [ "led4:A", "r4:1", "green", [ "v0" ] ],
+    [ "led2:A", "r3:1", "green", [ "v0" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r4:2", "mega:21", "green", [ "h0" ] ],
+    [ "r2:2", "mega:20", "green", [ "h0" ] ],
+    [ "r1:2", "mega:18", "green", [ "h0", "v27.6", "h96" ] ],
+    [ "r3:2", "mega:19", "green", [ "h0", "v18", "h48" ] ],
+    [ "mega:GND.1", "led4:C", "black", [ "v-210.6", "h226.6", "v67.2", "h9.6" ] ],
+    [ "mega:GND.1", "led1:C", "black", [ "v-143.4", "h82.6" ] ],
+    [ "mega:GND.1", "led2:C", "black", [ "v-201", "h111.4", "v67.2", "h28.8", "v-9.6" ] ],
+    [ "mega:GND.1", "led3:C", "black", [ "v-210.6", "h169", "v76.8", "h19.2" ] ]
+  ],
+  "dependencies": {}
+}
