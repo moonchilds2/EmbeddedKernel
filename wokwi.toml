@@ -1,0 +1,12 @@
+[wokwi]
+version = 1
+firmware = "sketch.ino"  # Ponto de entrada do projeto
+
+[board]
+type = "mega"  # Define a placa como Arduino Mega2560
+
+[include]
+paths = ["src", "include"]  # Pastas que contêm os arquivos .h e .cpp
+
+[libraries]
+TimerOne = "1.1.0"  # Biblioteca utilizada no projeto

@@ -49,12 +49,9 @@ void tick() {
 
 // Processo para controlar os LEDs
 char tst1(void) {
-    // Alterna o estado de cada LED
-    led->funcoes[LED_FLIP]((void*)18); // Alterna o LED no pino 18
-    led->funcoes[LED_FLIP]((void*)19); // Alterna o LED no pino 19
-    led->funcoes[LED_FLIP]((void*)20); // Alterna o LED no pino 20
-    led->funcoes[LED_FLIP]((void*)21); // Alterna o LED no pino 21
-
+    for (uint8_t i = 0; i < num_leds; i++) {
+        led->funcoes[LED_FLIP]((void*)leds[i]); // Alterna o estado de cada LED
+    }
     Serial.println("Alternando LEDs...");
     return REPEAT; // Repete o processo
 }

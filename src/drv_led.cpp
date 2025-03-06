@@ -1,8 +1,9 @@
-#include "include/drv_led.h"
-#include <Arduino.h>
+#include "drv_led.h"
 
 static driver meu_cartao; // Instância do driver de LED
 static ptrFuncDrv my_funcs[LED_END];
+static uint8_t leds[] = {18, 19, 20, 21}; // Array de pinos dos LEDs
+static uint8_t num_leds = sizeof(leds) / sizeof(leds[0]); // Número de LEDs
 
 // Função para definir o estado do LED
 char changePORT(void* parameters) {
@@ -20,9 +21,10 @@ char inverte(void* parameters) {
 
 // Função de inicialização do driver de LED
 char initGenerico(void* parameters) {
-    uint8_t pino = (uint8_t)parameters; // Converte o parâmetro para o pino desejado
-    pinMode(pino, OUTPUT); // Configura o pino como saída
-    meu_cartao.id = pino; // Define o ID do driver como o número do pino
+    for (uint8_t i = 0; i < num_leds; i++) {
+        pinMode(leds[i], OUTPUT); // Configura cada pino como saída
+    }
+    meu_cartao.id = 0; // Define o ID do driver
     return SUCCESS;
 }
 
